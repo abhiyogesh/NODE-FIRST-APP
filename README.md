@@ -42,4 +42,26 @@ Node.js'Role( in Web Development)
 node app.js - start script to run the server -> Parse Code, Register Variables & Functions -> Event Loop(Keeps on running as long as there are event listeners registered) ->process.exit(); 
 
 # Streams & Buffers
- 
+# Single Thread, Event Loop & Blocking Code
+- Node.js is a single JavaScript Thread 
+
+# Module Summary
+- How the web wokrs
+Client -> Request -> Server -> Response -> Client 
+- Program LifeCycle & Event loop
+-> Node.js runs non-blocking js code and uses an event driven code ("Event Loop") for running your logic
+-> A Node program exits as soon as there is no more work to do
+-> Note : The createServer() event never finishes by default
+
+- Asynchronous Code
+-> JS code is non blocking 
+-> Use callbacks and events 
+=> Order Changes !
+
+- Request & Responses
+ -> Parses request data in chunks (Streams & Buffers)
+ -> Avoid "double responses"
+
+- The Node Module System
+ -> Import via require ('./path) for custom files or require ('module) for core & third-party modules
+ -> Export via module.exports or just exports (for multiple exports  )
