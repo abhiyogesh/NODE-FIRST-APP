@@ -65,3 +65,17 @@ Client -> Request -> Server -> Response -> Client
 - The Node Module System
  -> Import via require ('./path) for custom files or require ('module) for core & third-party modules
  -> Export via module.exports or just exports (for multiple exports  )
+
+
+ # Improved Development Workflow and Debugging
+ -  Global Features vs Core Modules vs Third-Part Modules
+ * Global features : Keywords like const or function but also some global object like process
+ * Core Node.js Modules : Examples would be the file system module ("fs"), the path module("path") or the       Http module ("http")
+ *  Third party modules : Installed via npm install - we can add any kind of feature
+
+ Global features are always available , you dont need to import them into the files
+
+# Types of Errors
+- Syntax Errors
+- Runtime Errors
+- Logical Errors
