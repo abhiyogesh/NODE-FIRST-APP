@@ -1,4 +1,4 @@
-Node.js'Role( in Web Development)
+# 1-Node.js'Role( in Web Development)
 
 # Run Server - Create Server & Listen to Incoming Requests
 # Business Logic - Handle Requests, Validate Input , Connect to Database
@@ -16,7 +16,7 @@ Node.js'Role( in Web Development)
 - Used for real apps
 - Predictable sequence of steps
 
-# JavaScript Summary -
+# 2-JavaScript Summary -
 - Weakly Typed Language
 - Object Oriented Language
 - Versatile Language
@@ -67,7 +67,7 @@ Client -> Request -> Server -> Response -> Client
  -> Export via module.exports or just exports (for multiple exports  )
 
 
- # Improved Development Workflow and Debugging
+ # 3-Improved Development Workflow and Debugging
  -  Global Features vs Core Modules vs Third-Part Modules
  * Global features : Keywords like const or function but also some global object like process
  * Core Node.js Modules : Examples would be the file system module ("fs"), the path module("path") or the       Http module ("http")
@@ -79,3 +79,42 @@ Client -> Request -> Server -> Response -> Client
 - Syntax Errors
 - Runtime Errors
 - Logical Errors
+
+
+# 4-Express.JS
+- npm install --save express
+-npm install --save body-parser - for parsing the URL
+
+# Q - What is express.js ?
+- Express.js is Node.js framework - a package that adds a bunch of utility functions and tools and a clear
+set of rules how the app should be built (middleware!)
+- Its highly extensible and other packages can be plugged into it (middleware!)
+
+# Middleware, next() and res()
+- Express.js relies heavily on middleware functions -
+  you can easily add them by calling use()
+- Middleware functions handle a request and should call next() to forward the request to the next function
+  in line or send a response  
+
+# Q- Explain middleware in express.js - very important
+# Q Explain routing works in express.js - very important
+
+# Q - what is res.send in express.js
+res.send() in Express.js:
+This method is used to send various types of HTTP responses back to the client from an Express server. It is a versatile method that automatically handles content-type and content-length headers based on the data provided.
+
+# Q - what is the use of middleware in node js
+# Q - what is app.use in expres.js in node.js
+- The app.use() function in Express.js adds middleware to the application's request-processing pipeline. It applies the specified middleware to all incoming requests or to specific routes, allowing you to modify request/response objects, perform operations, or handle errors throughout the application.
+- syntax - app.use(path, callback)
+
+# Q - How to filter path of routes in Express.js ?
+- https://www.geeksforgeeks.org/node-js/how-to-filter-path-of-routes-in-express-js/
+
+# Q- What is sendFile in express.js ?
+
+# Core Module in node.js  - 'Path'
+# Q - how to serve html pages in express.node.js ?
+# Q - what is path.join(__dirname) in express.js ?
+# Q - what is path.dirname(process.mainModule.filename); ?
+# Q - how to serve files or css files statically in express.js ?
