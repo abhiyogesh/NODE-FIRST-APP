@@ -118,3 +118,26 @@ This method is used to send various types of HTTP responses back to the client f
 # Q - what is path.join(__dirname) in express.js ?
 # Q - what is path.dirname(process.mainModule.filename); ?
 # Q - how to serve files or css files statically in express.js ?
+
+
+# Working with Dynamic Content & Adding Templating Engines 
+ npm install --save ejs pug express-handlebars
+
+# Q - What is Templating Engines in Node.js ?
+# Q - What is EJS in Node.js ?
+# Q - What is Pug in Node.js ? 
+# Q - What is Handlebars in Node.js ?
+# Q - What is the difference between EJS and Pug in Node.js ?
+# Q - What is the difference between EJS and Handlebars in Node.js ?
+# Q - What is the difference between Pug and Handlebars in Node.js ?
+# Q - What is the difference between EJS, Pug and Handlebars in Node.js ?
+# Q - How to use EJS in Node.js ?
+# Q - How to use Pug in Node.js ?
+# Q - How to use Handlebars in Node.js ?
+# Q - How to use Templating Engines in Node.js ?
+# Q - How to render dynamic content in Node.js, Express.js ?
+# Q - How to render dynamic content in EJS, Pug, Handlebars ?
+# Q - What is the difference between rendering and sending in Node.js ?
+# Q - How to render HTML pages in Node.js, Express.js ?
+# Q - How to app.set view engine in Express.js ?
+# Q - How to app.set views in Express.js ?

@@ -1,11 +1,22 @@
-const path = require('path'); // Import the path module to handle file paths
-const express = require('express'); // Import the Express framework
-const rootDir = require('../util/path'); // Import the root directory path
-const router  = express.Router(); // Create a new router instance
- 
- router.get('/', (req,res, next)=>{ // Middleware to parse URL-encoded bodies
-   res.sendFile(path.join(rootDir, 'views', 'shop.html')); // Send the shop.html file as a response
+const path = require('path');
+
+const express = require('express');
+
+const rootDir = require('../util/path');
+const adminData = require('./admin');
+
+const router = express.Router();
+
+router.get('/', (req, res, next) => {
+  const products = adminData.products;
+  res.render('shop', {
+    prods: products,
+    pageTitle: 'Shop',
+    path: '/',
+    hasProducts: products.length > 0,
+    activeShop: true,
+    productCSS: true
+  });
 });
 
-module.exports = router; // Export the router to be used in app.js
-// This allows the router to handle requests for the root path defined in this file
+module.exports = router;
