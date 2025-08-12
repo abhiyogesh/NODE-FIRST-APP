@@ -256,3 +256,85 @@ app.set('views', path.join(__dirname, 'views'));
   - Connects Model and View
   - Should only make sure that the two can communicate( in both directions)
 - In Node.js, MVC architecture helps organize code, making it more maintainable and scalable by separating concerns.    
+
+
+# - 8. Dynamic Routes & Advanced Models
+# Dynamic Routes
+- Dynamic routes in Express.js allow you to create routes that can accept parameters, enabling you to handle requests for different resources dynamically.
+- For example, you can create a route that accepts a user ID as a parameter and retrieves the corresponding user data from the database.
+```javascript
+app.get('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  // Retrieve user data from the database using userId
+  res.send(`User ID: ${userId}`);
+});
+```
+# Advanced Models
+- Advanced models in Node.js can include features like validation, relationships between data entities, and complex queries.
+- You can use libraries like Mongoose for MongoDB or Sequelize for SQL databases to define advanced models with features like schema validation, associations, and query building.
+- These libraries provide an abstraction layer over the database, making it easier to work with complex data structures and relationships. 
+# Q - What is dynamic routes in Node.js ?
+- Dynamic routes in Node.js allow you to create routes that can accept parameters, enabling you to handle requests for different resources dynamically. This is useful for creating RESTful APIs where the route structure can change based on the data being accessed.
+# Q - What is advanced models in Node.js ?
+- Advanced models in Node.js can include features like validation, relationships between data entities, and complex queries.
+- You can use libraries like Mongoose for MongoDB or Sequelize for SQL databases to define advanced models with features like schema validation, associations, and query building.
+- These libraries provide an abstraction layer over the database, making it easier to work with complex data structures and relationships.  
+
+# Q - How to create advanced models in Node.js ?
+- To create advanced models in Node.js, you can use Object-Relational Mapping (ORM  ) libraries like Mongoose for MongoDB or Sequelize for SQL databases. These libraries allow you to define models with validation, relationships, and complex queries.
+- Example using Mongoose:
+```javascript
+const mongoose = require('mongoose');
+const userSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  age: { type: Number, min: 0 }
+});
+
+const User = mongoose.model('User', userSchema);
+```
+# Q - How to pass Route Params in Node.js ?
+- In Node.js, you can pass route parameters by defining them in the route path using a colon (:) followed by the parameter name. You can then access these parameters using the req.params object in your route handler.
+- Example:
+```javascript
+app.get('/users/:id', (req, res) => {
+  const userId = req.params.id;
+  // Retrieve user data from the database using userId
+  res.send(`User ID: ${userId}`);
+});
+```
+# Q- How to use Query Params in Node.js ?
+- In Node.js, you can use query parameters by appending them to the URL after a question mark (?). You can access these parameters using the req.query object in your route handler.
+- Example:
+```javascript
+app.get('/users', (req, res) => {
+  const { age, city } = req.query;
+  // Retrieve user data from the database based on query parameters
+  res.send(`Age: ${age}, City: ${city}`);
+});
+```
+ 
+ # Connecting to Databases
+
+ # command for mySql installation in node.js
+- To connect to a MySQL database in Node.js, you can use the mysql2 package. First, install the package using npm:
+```bash
+npm install mysql2
+```
+
+- Node.js can connect to various databases, including MongoDB, MySQL, PostgreSQL, and more.
+- You can use database drivers or Object-Relational Mapping (ORM) libraries to interact with databases in Node.js.
+- For MongoDB, you can use the official MongoDB driver or Mongoose, which is an ODM (Object Data Modeling) library that provides a higher-level abstraction for working with MongoDB.
+
+# Q - How to connect to a database in Node.js ?
+- To connect to a database in Node.js, you can use database drivers or Object-Relational Mapping (ORM) libraries. For example, you can use the MongoDB driver for MongoDB or Sequelize for SQL databases.
+- Example using MongoDB:
+```javascript
+const { MongoClient } = require('mongodb');
+
+async function connectToDatabase() {
+  const client = new MongoClient('mongodb://localhost:27017');
+  await client.connect();
+  console.log('Connected to MongoDB');
+  return client;
+}
