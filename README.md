@@ -456,6 +456,9 @@ npx sequelize-cli db:migrate
 ```  
 
 #  11 - MongoDB ---------
+https://cloud.mongodb.com/v2/68a28af0d4e5190c5d0e57a5#/overview
+https://www.mongodb.com/docs/manual/tutorial/insert-documents/
+login via yogeshsharrma356@gmail.com
 Do the configuration
  - install mongodb from browser via official website and download cloud database via atlas
 
@@ -488,3 +491,12 @@ async function connectToDatabase() {
 # Use commands like updateOne(), deleteOne()
 
 # All operations are
+
+
+# ----- 12-mongoose------
+ npm install --save mongoose
+ https://mongoosejs.com/docs/guides.html
+
+ Check all the inbuilt method
+ - check models(products, user, order) to check how to create schema's in mongooose
+ - check all the controllers to check all inbuilt mongoose methods
