@@ -338,3 +338,153 @@ async function connectToDatabase() {
   console.log('Connected to MongoDB');
   return client;
 }
+```
+# 10 - SEQUELIZE
+  Sequelize is a promise-based Node.js ORM that supports various SQL dialects. It provides an easy-to-use API for defining models, associations, and querying the database.
+
+# Q - What are the main features of Sequelize?
+- Sequelize offers a range of features, including:
+  - Model definition and validation
+  - Associations (one-to-one, one-to-many, many-to-many)
+  - Querying with a fluent API
+  - Transactions
+  - Migrations
+# Q - How to define models in Sequelize?
+- To define models in Sequelize, you can use the `sequelize.define` method, passing the model name and its attributes as an object.
+- Example:
+```javascript
+const Product = sequelize.define('product', {
+  id: {
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
+    allowNull: false,
+    primaryKey: true
+  },
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  price: {
+    type: Sequelize.DOUBLE,
+    allowNull: false
+  },
+  description: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+});
+```
+# Q - How to create associations in Sequelize?
+- To create associations in Sequelize, you can use the `belongsTo`, `hasMany`, and `belongsToMany` methods on your models.
+- Example:
+```javascript
+const User = sequelize.define('user', { /* attributes */ });
+const Product = sequelize.define('product', { /* attributes */ });
+const Cart = sequelize.define('cart', { /* attributes */ });
+
+User.hasMany(Product);
+Product.belongsTo(User);
+User.hasOne(Cart);
+Cart.belongsTo(User);
+```
+
+# Q - How to query data in Sequelize?
+- To query data in Sequelize, you can use the `findAll`, `findByPk`, and other query methods provided by the model.
+- Example:
+```javascript
+Product.findAll()
+  .then(products => {
+    console.log(products);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+  ```
+  # Q - How to update data in Sequelize?
+- To update data in Sequelize, you can use the `update` method on the model.
+- Example:
+```javascript
+Product.update({ price: 19.99 }, { where: { id: 1 } })
+  .then(() => {
+    console.log('Product updated');
+  })
+  .catch(err => {
+    console.log(err);
+  });
+  ```
+  # Q - How to delete data in Sequelize?
+- To delete data in Sequelize, you can use the `destroy` method on the model.
+- Example:
+```javascript
+Product.destroy({ where: { id: 1 } })
+  .then(() => {
+    console.log('Product deleted');
+  })
+  .catch(err => {
+    console.log(err);
+  });
+  ```
+  # Q - How to handle transactions in Sequelize?
+- To handle transactions in Sequelize, you can use the `transaction` method provided by the Sequelize instance.
+- Example:
+```javascript
+const sequelize = require('./database');
+
+async function performTransaction() {
+  const t = await sequelize.transaction();
+
+  try {
+    const user = await User.create({ name: 'John Doe' }, { transaction: t });
+    const product = await Product.create({ title: 'New Product', userId: user.id }, { transaction: t });
+    await t.commit();
+  } catch (error) {
+    await t.rollback();
+    console.error('Transaction failed:', error);
+  }
+}
+```
+# Q - How to use migrations in Sequelize?
+- To use migrations in Sequelize, you can use the Sequelize CLI to generate and run migration files.
+- Example:
+```bash
+npx sequelize-cli migration:generate --name create-users-table
+npx sequelize-cli db:migrate
+```  
+
+#  11 - MongoDB ---------
+Do the configuration
+ - install mongodb from browser via official website and download cloud database via atlas
+
+# - npm install mongodb
+
+ # download the mongoDB compass for GUI
+
+## Q - What is MongoDB?
+- MongoDB is a NoSQL database that stores data in flexible, JSON-like documents. It is designed for scalability and performance.
+
+## Q - How to connect to MongoDB?
+- To connect to MongoDB, you can use the official MongoDB Node.js driver.
+- Example:
+```javascript
+const { MongoClient } = require('mongodb');
+
+async function connectToDatabase() {
+  const client = new MongoClient('mongodb://localhost:27017');
+  await client.connect();
+  console.log('Connected to MongoDB');
+  return client;
+}
+```
+
+# Q - How to insert data in mongoDB?
+- Use commands like insertOne
+# Q - how to fetch record in mongoDB?
+- Use commands like find()
+
+# Use commands like updateOne(), deleteOne()
+
+# All operations are
