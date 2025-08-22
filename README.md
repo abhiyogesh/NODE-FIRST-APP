@@ -118,7 +118,7 @@ Client -> Request -> Server -> Response -> Client
     These errors occur when the code runs without crashing, but produces incorrect results. They can be more challenging to identify and fix, as they often involve a misunderstanding of the program's logic or requirements.
 
 
-# 4-Express.JS
+# 4-Express.JS & Routing
 # Express.js - A Node.js Framework
 - Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for building web and mobile applications.
 - It simplifies the process of building web servers and APIs by providing a set of tools and utilities.
@@ -500,3 +500,14 @@ async function connectToDatabase() {
  Check all the inbuilt method
  - check models(products, user, order) to check how to create schema's in mongooose
  - check all the controllers to check all inbuilt mongoose methods
+
+# ------ 13 - Sessions & Cookies
+Cookies - are in frontend side
+Sessions - are in backend side
+
+for backend session :
+npm install --save express-session
+-app.use(session({secret : 'my secret', resave : false, saveUninitialized : false}));
+
+for mongoDB-session
+install npm install --save connect-mongodb-session

@@ -24,7 +24,8 @@ exports.getProducts = (req, res, next) => {
       path: '/',
       hasProducts: products.length > 0,
       activeShop: true,
-      productCSS: true
+      productCSS: true,
+      isAuthenticated : req.isLoggedIn
     });
   });
 };
