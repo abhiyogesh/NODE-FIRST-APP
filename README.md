@@ -588,6 +588,7 @@ app.use(csrfProtection);
 app.get('/form', (req, res) => {
   res.render('form', { csrfToken: req.csrfToken() });
 });
+```
 
 
 # Q - What is the alternative of csurf?
@@ -605,3 +606,8 @@ https://www.npmjs.com/package/csrf-csrf.
 # Q - What is connect-flash?
 - connect-flash is a middleware for Express.js that allows you to store and retrieve flash messages (temporary messages) in the session.
 - install - npm install --save connect-flash
+
+
+# ---- 15--- How Sending Emails works ? -----
+- npm install --save nodemailer
+- npm install --save nodemailer-sendgrid-transport
