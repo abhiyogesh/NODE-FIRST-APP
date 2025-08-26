@@ -673,3 +673,75 @@ app.post('/signup', [
   })
 ]);
 ``` 
+# ------ 18--Error-Handling--------
+
+# Q - How to handle errors in Express.js?
+- To handle errors in Express.js, you can use middleware functions that have four arguments (error, req, res, next). These functions can catch errors and send appropriate responses.
+
+# Q - How many types of errors are there in Express.js?
+- In Express.js, there are two main types of errors: synchronous errors and asynchronous errors.
+
+# Q - What is the difference between synchronous and asynchronous errors in Express.js?
+- Synchronous errors occur during the request handling process and can be caught using try-catch blocks.
+- Asynchronous errors occur in callbacks or promises and need to be passed to the next middleware using the next() function.
+
+# Q - How to handle synchronous errors in Express.js?
+- To handle synchronous errors in Express.js, you can use try-catch blocks within your route handlers.
+
+# Q - How to handle asynchronous errors in Express.js?
+- To handle asynchronous errors in Express.js, you can use the next() function to pass the error to the error handling middleware., then & catch you can use then and catch blocks.
+
+# Q - How many types of errors are there in Node.js?
+- In Node.js, there are two main types of errors: system errors and application errors.
+
+# Q - What is the difference between system errors and application errors in Node.js?
+- System errors are errors that occur due to issues with the underlying system, such as file system errors or network errors.
+- Application errors are errors that occur within the application logic, such as validation errors or business logic errors.
+
+# Q - How many types of status codes are there in HTTP?
+- In HTTP, there are five main types of status codes: informational, success, redirection, client error, and server error.
+
+# Q - What is the purpose of HTTP status codes?
+- HTTP status codes are issued by a server in response to a client's request made to the server. They represent the outcome of the server's attempt to process the request.
+
+# Q - What are the most common HTTP status codes?
+- The most common HTTP status codes include:
+  - 200 OK: The request was successful.
+  - 404 Not Found: The requested resource was not found.
+  - 500 Internal Server Error: An error occurred on the server.
+
+ # Q - List all the HTTP status codes
+- 1xx Informational
+- 2xx Success
+- 3xx Redirection
+- 4xx Client Error
+- 5xx Server Error
+
+# Q - List all the errors  and their http response codes
+- 400 Bad Request: The server could not understand the request due to invalid syntax.
+- 401 Unauthorized: The client must authenticate itself to get the requested response.
+- 403 Forbidden: The client does not have access rights to the content.
+- 404 Not Found: The server can not find the requested resource.
+- 500 Internal Server Error: The server has encountered a situation it doesn't know how to handle.
+- 200 OK: The request has succeeded.
+- 201 Created: The request has been fulfilled and a new resource has been created.
+- 304 Not Modified: The resource has not been modified since the last request.
+
+
+# Q -list all the errors in express.js
+- Syntax Errors
+- Validation Errors
+- Authentication Errors
+- Authorization Errors
+- Not Found Errors
+- Internal Server Errors
+
+# Q - how many types of errors & Handling errors ?
+- Technical Errors(these are thrown)
+- Expected Errors(invalid user input)
+
+# --- Handling Errors -----
+- Using custom if-checks
+- Using try-catch blocks
+- Using then and catch blocks
+- Using error-handling middleware
