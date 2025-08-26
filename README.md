@@ -611,3 +611,65 @@ https://www.npmjs.com/package/csrf-csrf.
 # ---- 15--- How Sending Emails works ? -----
 - npm install --save nodemailer
 - npm install --save nodemailer-sendgrid-transport
+
+
+# ---- 16 --- Authentication  - Resetting and Updating Passwords -----
+- To implement password reset functionality, you can follow these steps:
+1. Create a form for the user to enter their email address.
+2. Generate a unique token and store it in the database along with the user's email.
+3. Send an email to the user with a link to reset their password, including the token as a query parameter.
+4. Create a route to handle the password reset request, verifying the token and allowing the user to enter a new password.
+5. Update the user's password in the database and delete the token.
+
+# ---- Authentication - Updating User Information -----
+- To implement user information updating functionality, you can follow these steps:
+1. Create a form for the user to enter their new information (e.g., email, password).
+2. Validate the new information on the server.
+3. Update the user's information in the database.
+4. Send a confirmation email to the user.
+
+
+
+# ---- 17 ----- Validations ------
+
+ https://express-validator.github.io/docs
+
+ https://github.com/chriso/validator.js
+
+ npm install --save express-validator
+- To implement validations in your application, you can follow these steps:
+1. Use a validation library (e.g., express-validator) to define validation rules for your forms.
+2. Apply the validation middleware to your routes.
+3. Handle validation errors in your route handlers.
+
+# Q - How to handle validation errors in Express.js?
+- To handle validation errors in Express.js, you can use the `validationResult` function from `express-validator` to check for errors and return them in the response.
+- Example:
+```javascript
+const { validationResult } = require('express-validator');
+
+app.post('/signup', (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+  // Continue with signup process
+});
+```
+
+# Q  - How to add async validation in Express.js?
+- To add async validation in Express.js, you can use the `custom` validator from `express-validator` and return a promise.
+- Example:
+```javascript
+const { check, body } = require('express-validator');
+
+app.post('/signup', [
+  body('email').custom((value) => {
+    return User.findOne({ email: value }).then(user => {
+      if (user) {
+        return Promise.reject('E-Mail exists already, please pick a different one.');
+      }
+    });
+  })
+]);
+``` 
