@@ -745,3 +745,63 @@ app.post('/signup', [
 - Using try-catch blocks
 - Using then and catch blocks
 - Using error-handling middleware
+
+
+# --19---files---
+- To handle file uploads in Express.js, you can use middleware like multer.
+- Multer is a middleware for handling multipart/form-data, which is used for uploading files.
+- You can configure multer to specify the storage location and file naming conventions.
+
+- npm install --save multer
+
+---- PDF KIt----
+https://pdfkit.org/
+
+- npm install --save pdfkit
+
+# Q - How to create a PDF document in Express.js?
+- To create a PDF document in Express.js, you can use the PDFKit library.
+- First, install PDFKit using npm:
+  - npm install --save pdfkit
+- Then, you can create a PDF document by requiring the PDFKit module and using its API to add content to the document.
+# Q - How to send a PDF document as a response in Express.js?
+- To send a PDF document as a response in Express.js, you can use the res.setHeader() method to set the Content-Type header to application/pdf and then pipe the PDF document stream to the response.
+# Q - How to generate a PDF document from HTML in Express.js?
+- To generate a PDF document from HTML in Express.js, you can use a library like Puppeteer or html-pdf. These libraries allow you to create a PDF document by rendering HTML content.
+# Q - How to customize the PDF document layout in Express.js?
+- To customize the PDF document layout in Express.js, you can use the options provided by the PDFKit library or the HTML-to-PDF library you are using. This may include setting margins, page sizes, and other layout properties.
+
+# Q - How to add images to a PDF document in Express.js?
+- To add images to a PDF document in Express.js using PDFKit, you can use the image() method provided by the PDFKit library. You need to provide the image path and specify the desired position and size.
+
+# Q - What is use of multer
+- Multer is a middleware for handling multipart/form-data, which is primarily used for uploading files. It makes it easy to handle file uploads in Express.js applications.
+
+# Q - How to use multer in Express.js?
+- To use multer in Express.js, you need to install it first:
+  - npm install --save multer
+- Then, you can import multer and configure it as middleware for your routes.
+
+# Q - How to handle file uploads with multer in Express.js?
+- To handle file uploads with multer in Express.js, you need to create a multer instance and specify the storage location and file naming conventions. Then, you can use the multer instance as middleware for your file upload routes.
+
+# Check methods ---
+const fileStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'images');
+  },
+  filename: (req, file, cb) => {
+    cb(null, new Date().toISOString().replace(/:/g, '-') + '-' + file.originalname);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+- exports.postDeleteProduct 
+- exports.getInvoice
+- exports.postEditProduct
