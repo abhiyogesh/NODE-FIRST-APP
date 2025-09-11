@@ -826,3 +826,104 @@ const fileFilter = (req, file, cb) => {
 
 # Q - How to style pagination links in CSS?
 - To style pagination links in CSS, you can target the pagination container and its child elements (e.g., links, buttons) using classes or IDs. You can then apply styles such as margins, padding, background colors, and hover effects to create a visually appealing pagination component.
+
+
+# -----20 - ASYNC REQUESTS-----
+
+- To make asynchronous requests in Express.js, you can use the built-in `fetch` API or libraries like Axios to send HTTP requests to your server endpoints.
+- You can handle the responses using Promises or async/await syntax to process the data returned from the server.
+
+# Q - How to handle errors in async requests?
+- To handle errors in async requests, you can use try/catch blocks with async/await or the .catch() method with Promises. This allows you to gracefully handle any errors that occur during the request process.
+
+# Q - How to cancel async requests?
+- To cancel async requests in JavaScript, you can use the AbortController API, which allows you to create a controller that can abort one or more fetch requests.
+
+
+#  ------21----- ADDING PAYMENTS -----
+
+https://dashboard.stripe.com/test/dashboard
+
+npm install --save stripe
+
+# Then, you can import stripe and configure it with your secret key.
+
+const stripe = require("stripe")("your_secret_key");
+
+# Q - How to create a payment intent with Stripe?
+- To create a payment intent with Stripe, you can use the `stripe.paymentIntents.create` method, providing the necessary details such as amount, currency, and payment method.
+
+# Q - How to confirm a payment intent with Stripe?
+- To confirm a payment intent with Stripe, you can use the `stripe.paymentIntents.confirm` method, providing the payment intent ID and any additional details required for confirmation.
+
+# Q - How to handle webhooks for payment events with Stripe?
+- To handle webhooks for payment events with Stripe, you can set up a webhook endpoint in your Express.js application and use the `stripe.webhooks.constructEvent` method to verify and process incoming webhook events.
+
+# Q - How to test Stripe payments in a development environment?
+- To test Stripe payments in a development environment, you can use the test API keys provided by Stripe and create test payment intents using the `stripe.paymentIntents.create` method. You can also use the Stripe CLI to simulate webhook events.
+
+# Q - How to handle payment errors with Stripe?
+- To handle payment errors with Stripe, you can use try/catch blocks around your payment processing code and check for specific error types returned by the Stripe API. This allows you to provide meaningful feedback to users and take appropriate actions based on the error.
+
+
+# 20-----REST API(Representational State Transfer)----
+
+# Q - What is REST API?
+- REST (Representational State Transfer) API is an architectural style for designing networked applications. It relies on a stateless, client-server communication model and uses standard HTTP methods (GET, POST, PUT, DELETE) to perform CRUD operations on resources.
+# Q - What are the key principles of REST API?
+- The key principles of REST API include:
+  1. Statelessness: Each request from a client contains all the information needed to process the request, and the server does not store any client context between requests. (Server and client don't store any connection history, every request handled separately).
+  2. Resource-based: REST APIs are designed around resources, which are identified by unique URIs. Clients interact with these resources using standard HTTP methods.
+  3. Representation: Resources can have multiple representations (e.g., JSON, XML), and clients can request the desired format using the `Accept` header.
+  4. Uniform Interface: REST APIs have a consistent and uniform interface, making it easier for clients to interact with different resources. (Clearly defined API endpoints with clearly defined request + response data structures)
+  5. Cacheable: Responses from the server can be cached by clients or intermediaries to improve performance and reduce server load.
+  6. Client-Server Separation: REST APIs promote a clear separation between the client and server, allowing them to evolve independently.
+  7. Layered System: REST APIs can be composed of multiple layers, with each layer responsible for a specific aspect of the API (e.g., authentication, data storage). This allows for better scalability and maintainability.
+  8. Code on Demand (optional): REST APIs can allow clients to execute code (e.g., JavaScript) on the server to extend functionality. This is an optional constraint and is not commonly used.
+
+# Q - How to design a REST API?
+- To design a REST API, you should follow these best practices:
+  1. Use nouns to represent resources (e.g., /users, /products) and avoid verbs in URLs.
+  2. Use appropriate HTTP methods (GET, POST, PUT, DELETE) to perform actions on resources.
+  3. Implement pagination, filtering, and sorting for collections of resources.
+  4. Use versioning in your API (e.g., /v1/users) to manage changes over time.
+
+  # Q - How to document a REST API?
+- To document a REST API, you can use tools like Swagger/OpenAPI to create interactive API documentation. This documentation should include details about each endpoint, request/response formats, authentication methods, and error handling.
+
+# Q - How to test a REST API?
+- To test a REST API, you can use tools like Postman or curl to send requests to your API endpoints and verify the responses. You can also write automated tests using testing frameworks like Mocha or Jest.
+
+# Q - How to handle errors in a REST API?
+- To handle errors in a REST API, you should use appropriate HTTP status codes to indicate the type of error (e.g., 404 for Not Found, 500 for Internal Server Error). You should also provide meaningful error messages in the response body to help clients understand and resolve the issue.
+
+
+# Q - Describe Big Picture of REST API
+- The big picture of REST API is to provide a standardized way for clients to interact with server-side resources over the web. It emphasizes a stateless communication model, where each request from a client contains all the information needed to process the request. REST APIs are designed around resources, which are identified by unique URIs, and clients can perform CRUD operations on these resources using standard HTTP methods. The use of representations (e.g., JSON, XML) allows for flexibility in how resources are presented to clients, while a uniform interface simplifies the interaction between clients and servers.
+
+# Q - What are the advantages of using REST API?
+- The advantages of using REST API include:
+  1. Scalability: REST APIs can handle a large number of requests and can be easily scaled horizontally by adding more servers.
+  2. Flexibility: REST APIs allow clients to request only the data they need, reducing bandwidth usage and improving performance.
+  3. Interoperability: REST APIs can be consumed by any client that understands HTTP, making it easy to integrate with different platforms and technologies.
+  4. Caching: REST APIs can take advantage of HTTP caching mechanisms to improve performance and reduce server load.
+
+# Q - What are the limitations of using REST API?
+- The limitations of using REST API include:
+  1. Statelessness: While statelessness improves scalability, it can also make it more challenging to manage user sessions and maintain context between requests.
+  2. Over-fetching/Under-fetching: Clients may receive more data than they need (over-fetching) or not enough data (under-fetching) due to the fixed structure of API responses.
+  3. Lack of standardization: Although REST is an architectural style, there is no strict standard for how to implement it, leading to inconsistencies between different APIs.
+
+  # Q - Data formats
+- REST APIs can use various data formats for request and response payloads. The most common formats include:
+  1. JSON (JavaScript Object Notation): A lightweight, human-readable format that is easy to parse and generate. JSON is the most widely used format for REST APIs.
+  2. XML (eXtensible Markup Language): A markup language that is more verbose than JSON but provides a rich structure for representing complex data. XML is less common in modern APIs but is still used in some cases.
+  3. HTML (HyperText Markup Language): While not a typical format for API responses, some APIs may return HTML content, especially when integrating with web applications.
+  4. Protocol Buffers: A binary serialization format developed by Google that is more efficient than JSON and XML. It is often used in high-performance APIs. 
+
+  # Q - HTTPS METHODS
+- REST APIs typically use the following HTTP methods:
+  1. GET: Retrieve data from the server (e.g., get a list of users).
+  2. POST: Send data to the server to create a new resource (e.g., create a new user).
+  3. PUT: Update an existing resource on the server (e.g., update user information).
+  4. DELETE: Remove a resource from the server (e.g., delete a user).
