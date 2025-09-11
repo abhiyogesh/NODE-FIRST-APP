@@ -1,9 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const stripe = require("stripe")(
-  "Your Keys"
-);
+//const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 const PDFDocument = require("pdfkit");
 
@@ -152,26 +150,26 @@ exports.getCheckout = (req, res, next) => {
         total += p.quantity * p.productId.price;
       });
 
-      return stripe.checkout.sessions.create({
-        mode: "payment",
-        payment_method_types: ["card"],
-        line_items: products.map((p) => {
-          return {
-            price_data: {
-              currency: "usd",
-              product_data: {
-                name: p.productId.title,
-                description: p.productId.description,
-              },
-              unit_amount: p.productId.price * 100,
-            },
-            quantity: p.quantity,
-            //mode: "payment",
-          };
-        }),
-        success_url: `${req.protocol}://${req.get("host")}/checkout/success`,
-        cancel_url: `${req.protocol}://${req.get("host")}/checkout/cancel`,
-      });
+      // return stripe.checkout.sessions.create({
+      //   mode: "payment",
+      //   payment_method_types: ["card"],
+      //   line_items: products.map((p) => {
+      //     return {
+      //       price_data: {
+      //         currency: "usd",
+      //         product_data: {
+      //           name: p.productId.title,
+      //           description: p.productId.description,
+      //         },
+      //         unit_amount: p.productId.price * 100,
+      //       },
+      //       quantity: p.quantity,
+      //       //mode: "payment",
+      //     };
+      //   }),
+      //   success_url: `${req.protocol}://${req.get("host")}/checkout/success`,
+      //   cancel_url: `${req.protocol}://${req.get("host")}/checkout/cancel`,
+      // });
     })
     .then((session) => {
       res.render("shop/checkout", {
