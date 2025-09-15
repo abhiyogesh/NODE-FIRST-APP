@@ -19,6 +19,7 @@
     "nodemon": "^1.18.3"
   },
   "dependencies": {
+     "cross-env": "^10.0.0",
     "bcryptjs": "^3.0.2",
     "body-parser": "^1.18.3",
     "compression": "^1.8.1",
