@@ -927,3 +927,14 @@ const stripe = require("stripe")("your_secret_key");
   2. POST: Send data to the server to create a new resource (e.g., create a new user).
   3. PUT: Update an existing resource on the server (e.g., update user information).
   4. DELETE: Remove a resource from the server (e.g., delete a user).
+
+
+  # -------28--- Deployment-Classc---
+
+  # node helmet
+  npm install --save helmet
+  npm install --save compression
+  npm install --save morgan
+
+  command for creating SSL certificates -
+  openssl req -nodes -new -x509 -keyout server.key -out server.cert
